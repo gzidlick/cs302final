@@ -22,7 +22,7 @@ Build the Repo and begin research:
 
 Complete Tutorial for Chrome extension:
 ----------------------------------------
-+ Status: In progress
++ Status: Done
 - Date: Fri Mar 13 
    = The tutorial provided by google is to be completed and
    understood to a degree that will allow for the creation
