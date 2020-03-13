@@ -1,0 +1,30 @@
+############################################################
+#                                                          #
+# Author: Austin Jones                                     #
+#                                                          #
+# Title: CS 302 Final Project Rubric                       #
+#                                                          #
+# Purpose: The purpose of this document is to create a     #
+#          grading scale for the priject laid out in this  #
+#          repository. The point of the exercise is to     #
+#          value the tasks required to create the final    #
+#          product that is invisioned.                     #
+#                                                          #
+############################################################
+
+Code is well maintained:
+   Points: 5/40
+
+The project works well and in a range of scenarios:
+   Points: 5/40
+
+The encryption used isn't trivial to crack:
+   Points: 5/40
+
+The extension interfaces with an encrypted file to find the
+information to be inserted into the web page:
+   Points: 10/40
+
+The extension properly inserts a password, username pair
+into a webpage:
+   Points: 15/40

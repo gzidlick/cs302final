@@ -1,0 +1,57 @@
+############################################################
+#                                                          #
+# Author: Austin Jones                                     #
+#                                                          #
+# Title: CS 302 Final Project Milestones                   #
+#                                                          #
+# Purpose: Define and layout milestones for the project    #
+# my group and myself intend to complete for this final    #
+# assignment in this class. This document will hold the    #
+# main tasks and updates for the project                   #
+#                                                          #
+############################################################
+
+Build the Repo and begin research:
+----------------------------------------
++ Status: Done
+- Date: Fri Mar 8
+   = Build a repository to store all the code for the
+   project in. Make a folder and branch for each member of
+   the group. Discuss how all the members should interact
+   with and push to the master branch.
+
+Complete Tutorial for Chrome extension:
+----------------------------------------
++ Status: In progress
+- Date: Fri Mar 13 
+   = The tutorial provided by google is to be completed and
+   understood to a degree that will allow for the creation
+   of the password managing extension we plan to create.
+
+Extend the tutorial code:
+----------------------------------------
++ Status: To be started
+- Date: Fri Mar 13 
+   = Create a chrome extension that can recognize the 
+   password and username fields of a web page and prompt
+   to fill them. The extension will interact with just a 
+   plain text file.
+
+
+Determine the encryption method:
+----------------------------------------
++ Status: To be started
+- Date: Fri Mar 13 
+   = An encryption method with sufficient security.
+   It, optimally, should be fast and reliable. How the
+   data is to be stored such that it is easy, fast and
+   secure to access is also to be determined.
+
+Implement the encryption method:
+----------------------------------------
++ Status: To be started
+- Date: Fri Mar 13 
+   = Implement that which was determined in the previous
+   step. It may be easier here to implement the decrypter
+   and indexer in the command line first and then stitch
+   the result to the extension once done.
