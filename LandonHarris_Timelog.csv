@@ -1,0 +1,4 @@
+date,time,duration,description
+3/9/2020,9:00:00 AM,1:00:00,Background study: Finding resources on extensions and encryption methods; searched through chrome and firefox extensions and read LastPass whitepaper on security and functionaliy.
+3/11/2010,8:00:00 PM,2:00:00,First Half of chrome extension tutorial. Modified to use styling and browser action more relevant to our application (required further research).
+3/13/2020,19:00:00,2:00:00,"Last part of chrome extension tutorial. Discovered issue with inline code with extensions; researched event listeners, button prints input from text boxes"
