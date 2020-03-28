@@ -1,10 +1,10 @@
 export class PasswordContainer{
-	constructor(masterPassword: string){
+	constructor(masterPassword){
 		this.masterPassword = masterPassword;
+		this.passwords = [];
+		this.usernames = [];
 	}
 
-	this.passwords = [];
-	this.usernames = [];
 	loadFromStorage(){
 		// this needs to load from the browsers local storage
 	}
@@ -14,10 +14,11 @@ export class PasswordContainer{
 		// should eventually encrypt and the load should decrypt, but lets do that later
 	}
 
-	#encrypt(){
+	encrypt(){
 
 	}
-	#decrypt(){
+
+	decrypt(){
 
 	}
 
