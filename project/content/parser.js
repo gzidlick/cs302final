@@ -5,8 +5,7 @@ class FormReader {
 
 		// search the DOM for any form fields we might need
 		for (let i = 0; i < form.elements.length; i++){
-			if(["object","keygen","output"].includes(form.elements[i].localName.toLowerCase()) ||
-				form.elements[i].localName.toLowerCase() != "input" &&
+			if(form.elements[i].localName.toLowerCase() != "input" &&
 				(form.elements[i].type == undefined || form.elements[i].type == null))
 				continue; // it's not a username or password field
 
