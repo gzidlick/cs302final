@@ -2,15 +2,15 @@
 	"name": "Password Manager",
 	"version": "0.1",
 	"description": "Welp. It's a password manager.",
-	"permissions": ["storage", "declarativeContent"],
+	"permissions": ["storage", "declarativeContent", "<all_urls>", "activeTab"],
 	"background": {
-		"scripts": ["background.js"],
-		"persistent": false
+		"page": "html/background.html",
+		"persistent": true
 	},
 	"browser_action":{
 		"default_title": "Password Manager",
-		"default_popup": "popup.html"
+		"default_popup": "html/popup.html"
 	},
-	"options_page": "options.html",
+	"options_page": "html/options.html",
 	"manifest_version": 2
 }
