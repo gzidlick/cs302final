@@ -1,5 +1,5 @@
-export class FormReader{
-	public getFormFields(form){
+export class FormReader {
+	getFormFields(form){
 		let pwFields = [];
 		let userFields = [];
 
@@ -10,7 +10,7 @@ export class FormReader{
 				(form.elements[i].type == undefined || form.elements[i].type == null))
 				continue; // it's not a username or password field
 
-			const DOMtype: string = form.elements[i].type.toLowerCase();
+			const DOMtype = form.elements[i].type.toLowerCase();
 
 			if(DOMtype == "fieldset")
 				continue; // probably not a fieldset

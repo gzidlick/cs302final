@@ -1,5 +1,3 @@
-import { getFormFields } from 'parser.js'
-
 document.addEventListener('DOMContentLoaded', function(){
 	console.log("here!");
 	var link = document.getElementById('submit');
