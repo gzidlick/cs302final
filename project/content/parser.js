@@ -1,4 +1,4 @@
-export class FormReader {
+class FormReader {
 	getFormFields(form){
 		let pwFields = [];
 		let userFields = [];
