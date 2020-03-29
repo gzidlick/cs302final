@@ -4,3 +4,4 @@ date,time,duration,description
 3/11/2010,8:00:00 PM,2:00:00,First Half of chrome extension tutorial. Modified to use styling and browser action more relevant to our application (required further research).
 3/13/2020,19:00:00,2:00:00,"Last part of chrome extension tutorial. Discovered issue with inline code with extensions; researched event listeners, button prints input from text boxes"
 3/28/2020,12:00:00,4:00:00,"Reading through examples of other extensions. Setting up permissions and background script for reading DOM content. Created container class to hold usernames and passwords."
+3/28/2020,21:30:00,2:30:00,"Finished basic code to programmatically read username and password fields from DOM. Lots of trial and error was involved!"
