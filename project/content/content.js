@@ -4,4 +4,17 @@ console.log("NEW FORMREADER");
 // (and my browser didn't have cookies saved to log me in)
 // so this is the form id only for Yahoo. 
 // We'll have to find it programmatically...TODO!
-reader.getFormFields(document.getElementById("login-username-form"));
+
+function getLoginForm(){
+	let list = document.getElementsByTagName("form");
+	if(list.length >1){
+		return null;
+	}else{
+		return list[0];
+	}
+}
+
+var curForm = getLoginForm();
+if(curForm != null){
+	reader.getFormFields(curForm);
+}
