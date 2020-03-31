@@ -1,0 +1,47 @@
+<html>
+<head>
+<title>Login Page</title>
+</head>
+<body>
+<form name="loginForm" method="post" action="login.php">
+<table width="20%" bgcolor="C0C8BE" align="center">
+
+<tr>
+<td colspan=2><center><font size=4><b>Password Manager</b></font></center></td>
+</tr>
+
+<tr>
+<td>Username:</td>
+<td><input type="text" placeholder="Username" id="text1" /></td>
+</tr>
+
+<tr>
+<td>Password:</td>
+<td><input type="password" placeholder="Password" id="text2" /></td>
+</tr>
+
+<tr>
+<td ><input type="Reset"></td>
+<td><input type="button" value="Login"  onclick="javascript:validate()" /></td>
+</tr>
+
+</table>
+</form>
+<script type="text/javascript">
+function validate()
+{
+    if(   document.getElementById("text1").value == "workshop"
+       && document.getElementById("text2").value == "workshop" )
+    {
+        alert( "validation succeeded" );
+
+    }
+    else
+    {
+        alert( "validation failed" );
+
+    }
+}
+</script>
+</body>
+</html>
