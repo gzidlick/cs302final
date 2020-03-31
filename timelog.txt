@@ -13,3 +13,11 @@ Gauge Zidlick Timelog:
 
 	3/13			~ 1 Hr			Went through Google tutorial on how to create chrome extension and made a simple
 							extension that changes background colors.
+
+
+	3/28			~ 1 hr			Did some research on encryption algothirms and file encryption.
+
+	3/30			~ 1 hr			Did some work with username and password HTML code. Made a little test GUI extension
+							with a username and password field.
+
+	3/31			~ 3 hr			Spent time learning javascript.
