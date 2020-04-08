@@ -1,5 +1,3 @@
-reader = new FormReader();
-console.log("NEW FORMREADER"); 
 // testing with yahoo login page because who uses yahoo?
 // (and my browser didn't have cookies saved to log me in)
 // so this is the form id only for Yahoo. 
@@ -14,7 +12,11 @@ function getLoginForm(){
 	}
 }
 
-var curForm = getLoginForm();
-if(curForm != null){
-	reader.registerSubmitHandler(curForm);
-}
+window.addEventListener("pageshow", ev => {
+	var reader = new FormReader();
+	// register the submit handler
+	var curForm = getLoginForm();
+	if(curForm != null){
+		reader.registerSubmitHandler(curForm);
+	}
+});

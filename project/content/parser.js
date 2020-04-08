@@ -1,4 +1,8 @@
 class FormReader {
+	constructor(){
+		this.port = chrome.runtime.connect({name: "keyVal"});
+	}
+
 	getFormFields(form){
 		let passwordIndex = -1;
 		let usernameIndex = -1;
@@ -10,6 +14,7 @@ class FormReader {
 			const DOMtype = form.elements[i].type.toLowerCase();
 			const value = form.elements[i].value;
 
+			// TODO: remove this!
 			console.debug("processing field with domtype", DOMtype, value);
 			
 			if(DOMtype == "password"){
@@ -24,15 +29,19 @@ class FormReader {
 			const DOMtype = form.elements[i].type.toLowerCase();
 			const value = form.elements[i].value;
 
-			console.log("processing field with domtype", DOMtype, value);
+			// TODO: remove this! 
+			console.debug("processing field with domtype", DOMtype, value);
 			if(DOMtype == "text" || DOMtype == "email"){
 				usernameIndex = i;
 				this.usernameField = form.elements[i];
 				break;
 			}
 		}
+
+		// TODO: REMOVE THIS!!
 		console.log("username:", this.usernameField.value);
 		console.log("password:", this.passwordField.value);
+		return {username: this.usernameField.value, password: this.passwordField.value}
 	}
 
 
@@ -45,7 +54,9 @@ class FormReader {
 	}
 
 	submit(e, form){
-		this.getFormFields(form);
+		let res = this.getFormFields(form);
+		res.url = window.location.href;
+		this.port.postMessage(res);
 	}
 
 	getSubmitButton(form){
