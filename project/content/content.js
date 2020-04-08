@@ -16,5 +16,5 @@ function getLoginForm(){
 
 var curForm = getLoginForm();
 if(curForm != null){
-	reader.getFormFields(curForm);
+	reader.registerSubmitHandler(curForm);
 }

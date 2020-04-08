@@ -10,7 +10,7 @@ class FormReader {
 			const DOMtype = form.elements[i].type.toLowerCase();
 			const value = form.elements[i].value;
 
-			console.log("processing field with domtype", DOMtype, value);
+			console.debug("processing field with domtype", DOMtype, value);
 			
 			if(DOMtype == "password"){
 				passwordIndex = i;
@@ -25,46 +25,52 @@ class FormReader {
 			const value = form.elements[i].value;
 
 			console.log("processing field with domtype", DOMtype, value);
-			if(DOMtype == "text"){
+			if(DOMtype == "text" || DOMtype == "email"){
 				usernameIndex = i;
 				this.usernameField = form.elements[i];
 				break;
 			}
 		}
-		console.log("username:", this.usernameField);
-		console.log("password:", this.passwordField);
+		console.log("username:", this.usernameField.value);
+		console.log("password:", this.passwordField.value);
 	}
 
 
 	registerSubmitHandler(form){
-		const button = getSubmitButton(form);
+		const button = this.getSubmitButton(form);
+		if(!button) return; // probably not a login page
 		const handler = e => this.submit(e,form);
 		button.addEventListener("click", handler);
 		form.addEventListener("submit", handler);
 	}
 
+	submit(e, form){
+		this.getFormFields(form);
+	}
+
 	getSubmitButton(form){
 		const possibleButtons = [];
-		Array.from(form.ownerDocument.getElementsByTagName("button").forEach(value => {
+		let button;
+		Array.from(form.ownerDocument.getElementsByTagName("button")).forEach(value => {
 			if(!value.isConnected) return;
 			if(!value.type || value.type != "reset"){
 				const possibleNames = [];
 				if (value.name) possibleNames.push(value.name.toLowerCase());
 				if (value.textContent) possibleNames.push(value.textContent.toLowerCase());
 				if (value.value) possibleNames.push(value.value.toLowerCase());
-				const button_score = scoreButton(possibleNames);
+				const button_score = this.scoreButton(possibleNames);
 				
-				if(button_score == -1) continue;
+				if(button_score == -1) return;
 				if(button_score ==  0)	// save it for later
 					possibleButtons.push(value);
 
 				if(button_score == 1){
 					//The button!
-					return value
+					button = value;
 				}
 			}
-		}
-		return possibleButtons[0];	// shouldn't get here but this is just in case
+		});
+		return button ? button : possibleButtons[0];
 	}
 
 
@@ -79,35 +85,35 @@ class FormReader {
 		let bad = false;
 
 		for(let i=0; i < possibleNames.length; i++){
-			if(badScore) break;
+			if(bad) break;
 			const curVal = possibleNames[i].trim(); // remove whitespace
 			if(!curVal) continue;					// don't care if it's empty
 
 			for(let j=0; j < badWords.length; j++){
-				if(curVal.indexOf(badWords[j]) >=){
-					badScore = true;
+				if(curVal.indexOf(badWords[j]) >= 0 ){
+					bad = true;
 					break;
 				}
 			}
 		}
 
 		for(let i=0; i < possibleNames.length; i++){
-			if(goodScore) break;
+			if(good) break;
 			const curVal = possibleNames[i].trim(); // remove whitespace
 			if(!curVal) continue;					// don't care if it's empty
 
 			for(let j=0; j < goodWords.length; j++){
-				if(curVal.indexOf(goodWords[j]) >=){
-					goodScore = true;
+				if(curVal.indexOf(goodWords[j]) >= 0){
+					good = true;
 					break;
 				}
 			}
 		}
 
-		if(goodScore && badScore) return 0;
-		if(badScore) return -1;
-		if(goodScore) return 1;
-		return 0;	// !goodScore && !badScore
+		if(good && bad) return 0;
+		if(bad) return -1;
+		if(good) return 1;
+		return 0;	// !good && !bad
 	}
 
 	
