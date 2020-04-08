@@ -5,6 +5,10 @@ export class PasswordContainer{
 		this.usernames = [];
 	}
 
+	store(obj){
+		// obj has obj.username, obj.password, and obj.url
+	}
+
 	loadFromStorage(){
 		// this needs to load from the browsers local storage
 	}
