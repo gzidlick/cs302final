@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Putting User Input into JS Objects</title>
+    <style>
+        .formBox{
+            padding: 0.5rem 2rem;
+        }
+    </style>
+    <script src="script.js"></script>
+</head>
+<body>
+    <form>
+	<table width="20%" bgcolor="FF7F00" align="center">
+        <tr>
+	    <td colspan=2><center><font size=4><b>Password Manager</b></font></center></td>
+	</tr>
+	<tr class="formBox">
+            <td for="profile">Profile:</td>
+            <td><input type="text" id="profile" placeholder="Profile"/></td>
+        </tr>
+        <tr class="formBox">
+            <td for="username">Username:</td>
+            <td><input type="text" id="username" placeholder="Username"/></td>
+        </tr>
+        <tr class="formBox">
+            <td for="password">Password:</td>
+            <td><input type="text" id="password" placeholder="Password"/></td>
+        </tr>
+        <tr class="formBox">
+            <td nowrap><button id="btn">Add Profile</button></td>
+        </tr>
+        <tr id="msg">
+            <pre></pre>
+        </tr>
+	</table>
+    </form>
+
+</body>
+</html>
