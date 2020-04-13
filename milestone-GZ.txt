@@ -1,0 +1,26 @@
+Gauge Zidlick
+Git repo: https://github.com/gzidlick/cs302final/tree/Gauge-Zidlick
+
+
+Report: This week we worked on creating a simple extension that changes the background of a webpage. The intended purpose of this
+was to create a simple program that would act as a "Hello World!" tutorial. This would provide us with base knowledge on creating
+Chrome extensions so that we can build from it into our main project. Team dynamic is good so far and everybody seems to understand the
+steps we need to take to complete our project.
+
+
+Milestones:
+
+	Create Github Repository (10 pts):
+		Create a Github repository so that all team members have a place to display progress in project.
+	
+	Create Manifest file (10 pts):
+		Chrome extensions start with a Manifest file, this file should contain information about the extension and
+		the version of Chrome that it is intended for. 
+	
+	Create a User Interface (10 pts):
+		A user interface allows a user to interact with the program. Design a popup user interface that allows the user
+		to click a button to perform an action.
+	
+	Make the button useful (10 pts):
+		Using the button created in the last task, make it perform some type of action during an on-click event. My button will
+		be changing the background color of chrome webpages.
