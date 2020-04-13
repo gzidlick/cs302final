@@ -10,7 +10,7 @@ I have completed the chrome tutorial with some changes and additional
 research to better fit our application
 
 ## Read Webpage Content
-### Not started
+### Completed
 A function of various other password managers is being able to find the 
 username and password field in the login form of various webpages. This 
 task, although seemingly simple, will require research into the basic 
@@ -18,7 +18,7 @@ structure of webpages and login forms and how we can capture the input
 from these two fields upon submission. 
 
 ## Store/Read Username/Password in accessible datastructure
-### Not started
+### In Progress
 302 and 140 have focused on various datastructures and their implementation; 
 as such, this milestone will focus on choosing the correct datastructure
 to store a username/password pair, likely keyed on the website name. 
@@ -27,7 +27,7 @@ a language that we are not as comfortable in when it comes to the
 minutia of intricate datastructures. 
 
 ## Encrypt/decrypt datastructure into local file
-### Not Started
+### Started
 Although none of us have taken any cryptography classes, there are plenty of 
 resources and libraries that are available that provide symmetric encryption
 functions. As this is something that, if done incorrectly, could
