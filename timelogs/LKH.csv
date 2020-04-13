@@ -6,3 +6,4 @@ DAY,TIME (H:M:S),DESCRIPTION
 3/28/2020,4:00:00,Reading through examples of other extensions. Setting up permissions and background script for reading DOM content. Created container class to hold usernames and passwords.
 3/28/2020,2:30:00,Finished basic code to programmatically read username and password fields from DOM. Lots of trial and error was involved!
 4/7/2020,3:00:00,"finished finding submit button/handlers. communicates username, pass,url to backend for storage."
+4/13/2020,1:00:00,"Merged pieces of code together from group. Goal being to begin local storage. Updated milestones and cleaned up repo."
