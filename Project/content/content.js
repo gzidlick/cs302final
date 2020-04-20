@@ -18,7 +18,6 @@ window.addEventListener("pageshow", ev => {
             // autofill
         }else{
             // register submit handler so we can save
-            console.log("here?");
 		    reader.registerSubmitHandler(curForm);
         }
 	}

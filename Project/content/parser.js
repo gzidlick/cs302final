@@ -16,11 +16,9 @@ class FormReader {
 
         visited.then(function(garbage){
             // we've never visited this before
-            console.log(garbage);
             return false;
         }).catch(function(alsoGarbage){
             // HALT! been there, done this
-            console.log(alsoGarbage);
             return true;
         });
     }
