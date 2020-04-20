@@ -1,3 +1,5 @@
+import { RC4 } from './encryption.js';
+
 export class PasswordContainer{
 
     hasVisited(url){
@@ -10,13 +12,16 @@ export class PasswordContainer{
         return urlArray.includes(url);
     }
 
-	store(obj){
-        // param: obj: {url: hashedURL, pass: "encrypted username, password json object",
+	store(obj, masterPass){
+        // param: obj: {pass: "string to be encrypted",
         //              plaintextURL: plaintextURL}
-        //localStorage.setItem(obj.url, JSON.stringify(obj) );
-        const key = obj.url;
-        const val = obj.pass;
-        chrome.storage.sync.set({key: val});
+        // param: masterPass: unencrypted master password
+
+        // ENCRYPTION HAPPENS HERE
+        console.debug(obj, masterPass);
+        const key = RC4.randomHashNotRC4(obj.plaintextURL);
+        const val = RC4.crypt(obj.pass);
+        chrome.storage.sync.set({[key]:val});
 
         // add this url to the plaintext list
         let tmpArray = chrome.storage.sync.get['meta_URLS'];

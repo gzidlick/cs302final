@@ -61,8 +61,8 @@ class FormReader {
 		}
 
 		// TODO: REMOVE THIS!!
-		console.log("username:", this.usernameField.value);
-		console.log("password:", this.passwordField.value);
+		console.debug("username:", this.usernameField.value);
+		console.debug("password:", this.passwordField.value);
 		return {username: this.usernameField.value, password: this.passwordField.value}
 	}
 
@@ -76,14 +76,15 @@ class FormReader {
 	}
 
 	submit(e, form){
-		let res = this.getFormFields(form);
-		res.plaintextURL = window.location.href;
-        console.log(res);
+		let formRes = this.getFormFields(form);
         // url, pass, plaintextURL
-        res.url = RC4.randomHashNotRC4(res.plaintextURL);
+        let obj = {a: formRes.username, b: formRes.password};
 
-        // encrypt here!
-		this.port.postMessage(res);
+        let ret = {
+            plaintextURL: window.location.href,
+            pass: JSON.stringify(obj)
+        }
+		this.port.postMessage(ret);
 	}
 
 	getSubmitButton(form){

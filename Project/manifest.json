@@ -6,7 +6,8 @@
         "storage", 
         "declarativeContent", 
         "<all_urls>", 
-        "activeTab"
+        "activeTab",
+        "tabs"
     ],
 	"background": {
 		"page": "background/background.html",
@@ -17,7 +18,6 @@
 		"all_frames": true,
 		"js": [
 			"content/parser.js",
-			"content/encryption.js",
 			"content/content.js"
 		],
 		"run_at": "document_end"

@@ -7,8 +7,9 @@ chrome.runtime.onConnect.addListener(function(port) {
 	console.assert(port.name == "keyVal");
 
 	port.onMessage.addListener(function(msg){
-		console.log(msg);
-		container.store(msg);
+        let password = prompt("Enter your master password: \n(TODO: make this not plaintext)");
+
+		container.store(msg,password);
 	});
 });
 

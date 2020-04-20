@@ -1,4 +1,4 @@
-class RC4{
+export class RC4{
     static crypt(obj){
         return obj;
     }
