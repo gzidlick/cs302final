@@ -1,36 +1,29 @@
 export class PasswordContainer{
-	constructor(masterPassword){
-		this.masterPassword = masterPassword;
-		this.passwords = [];
-		this.usernames = [];
-	}
 
     hasVisited(url){
-        // check plaintext list of urls to see if we've been
-        // to `url` before
-        return false;
+        // param: url::string the url we are checking against
+        // return::bool if the url has been visited
+        let urlArray = chrome.storage.sync.get['meta_URLS'];
+        if(urlArray === undefined)
+            return false;
+
+        return urlArray.includes(url);
     }
 
 	store(obj){
-		// obj has obj.username, obj.password, and obj.url
-        localStorage.setItem(obj.url, JSON.stringify(obj) );
+        // param: obj: {url: hashedURL, pass: "encrypted username, password json object",
+        //              plaintextURL: plaintextURL}
+        //localStorage.setItem(obj.url, JSON.stringify(obj) );
+        const key = obj.url;
+        const val = obj.pass;
+        chrome.storage.sync.set({key: val});
+
+        // add this url to the plaintext list
+        let tmpArray = chrome.storage.sync.get['meta_URLS'];
+        if(tmpArray === undefined)
+            tmpArray = [];
+
+        tmpArray.push(obj.plaintextURL);
+        chrome.storage.sync.set({meta_URLS: tmpArray});
 	}
-
-	loadFromStorage(){
-		// this needs to load from the browsers local storage
-	}
-
-	saveToStorage(){
-		// well the opposite
-		// should eventually encrypt and the load should decrypt, but lets do that later
-	}
-
-	encrypt(){
-
-	}
-
-	decrypt(){
-
-	}
-
 }

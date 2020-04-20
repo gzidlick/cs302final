@@ -16,9 +16,11 @@ class FormReader {
 
         visited.then(function(garbage){
             // we've never visited this before
+            console.debug(garbage);
             return false;
         }).catch(function(alsoGarbage){
             // HALT! been there, done this
+            console.debug(alsoGarbage);
             return true;
         });
     }
@@ -75,7 +77,12 @@ class FormReader {
 
 	submit(e, form){
 		let res = this.getFormFields(form);
-		res.url = window.location.href;
+		res.plaintextURL = window.location.href;
+        console.log(res);
+        // url, pass, plaintextURL
+        res.url = RC4.randomHashNotRC4(res.plaintextURL);
+
+        // encrypt here!
 		this.port.postMessage(res);
 	}
 

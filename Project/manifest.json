@@ -2,7 +2,12 @@
 	"name": "Password Manager",
 	"version": "0.1",
 	"description": "Welp. It's a password manager.",
-	"permissions": ["storage", "declarativeContent", "<all_urls>", "activeTab"],
+	"permissions": [
+        "storage", 
+        "declarativeContent", 
+        "<all_urls>", 
+        "activeTab"
+    ],
 	"background": {
 		"page": "background/background.html",
 		"persistent": false
@@ -12,6 +17,7 @@
 		"all_frames": true,
 		"js": [
 			"content/parser.js",
+			"content/encryption.js",
 			"content/content.js"
 		],
 		"run_at": "document_end"
