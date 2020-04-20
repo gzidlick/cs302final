@@ -1,8 +1,3 @@
-// testing with yahoo login page because who uses yahoo?
-// (and my browser didn't have cookies saved to log me in)
-// so this is the form id only for Yahoo. 
-// We'll have to find it programmatically...TODO!
-
 function getLoginForm(){
 	let list = document.getElementsByTagName("form");
 	if(list.length >1){
@@ -17,6 +12,14 @@ window.addEventListener("pageshow", ev => {
 	// register the submit handler
 	var curForm = getLoginForm();
 	if(curForm != null){
-		reader.registerSubmitHandler(curForm);
+        // check the list to see if we have been to this website before
+        let url = window.location.href;
+        if(reader.checkVisited(url)){
+            // autofill
+        }else{
+            // register submit handler so we can save
+            console.log("here?");
+		    reader.registerSubmitHandler(curForm);
+        }
 	}
 });

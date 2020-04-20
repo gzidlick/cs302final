@@ -3,6 +3,28 @@ class FormReader {
 		this.port = chrome.runtime.connect({name: "keyVal"});
 	}
 
+    checkVisited(URL){
+        var visited = new Promise(function(resolve, reject){
+            chrome.runtime.sendMessage({name: "checkURL", url: URL}, function(response) {
+                if(response.visited){
+                    reject("we've visited this before");
+                }else{
+                    resolve("We've never recorded this URL");
+                }
+            });
+        });
+
+        visited.then(function(garbage){
+            // we've never visited this before
+            console.log(garbage);
+            return false;
+        }).catch(function(alsoGarbage){
+            // HALT! been there, done this
+            console.log(alsoGarbage);
+            return true;
+        });
+    }
+
 	getFormFields(form){
 		let passwordIndex = -1;
 		let usernameIndex = -1;

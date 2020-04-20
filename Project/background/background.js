@@ -11,3 +11,9 @@ chrome.runtime.onConnect.addListener(function(port) {
 		container.store(msg);
 	});
 });
+
+chrome.runtime.onMessage.addListener(function(request, sender, sendResponse){
+    if(request.name == "checkURL"){
+        sendResponse({visited: container.hasVisited(request.url)});
+    }
+});

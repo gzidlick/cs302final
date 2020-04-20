@@ -5,8 +5,15 @@ export class PasswordContainer{
 		this.usernames = [];
 	}
 
+    hasVisited(url){
+        // check plaintext list of urls to see if we've been
+        // to `url` before
+        return false;
+    }
+
 	store(obj){
 		// obj has obj.username, obj.password, and obj.url
+        localStorage.setItem(obj.url, JSON.stringify(obj) );
 	}
 
 	loadFromStorage(){
