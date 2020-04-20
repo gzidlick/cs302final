@@ -7,11 +7,16 @@ export class PasswordContainer{
          *@param: url::string the url we are checking against
          *@return::bool if the url has been visited
          */
-        let urlArray = chrome.storage.sync.get['meta_URLS'];
-        if(urlArray === undefined)
-            return false;
-
-        return urlArray.includes(url);
+        return new Promise(function(resolve, reject){
+            chrome.storage.sync.get(['meta_URLS'],function(urlArray){
+                if(urlArray['meta_URLS'] === undefined){
+                    resolve(false);
+                }else{
+                    let resVal = urlArray['meta_URLS'].includes(url);
+                    resolve(resVal);
+                }
+            });
+        });
     }
 
 	store(obj, masterPass){

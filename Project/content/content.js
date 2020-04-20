@@ -14,8 +14,12 @@ window.addEventListener("pageshow", ev => {
 	if(curForm != null){
         // check the list to see if we have been to this website before
         let url = window.location.href;
+        //reader.checkVisted(url).then(function(visited){}
+
         if(reader.checkVisited(url)){
             // autofill
+            console.log("autofill");
+            reader.autoFill(curForm, url);
         }else{
             // register submit handler so we can save
 		    reader.registerSubmitHandler(curForm);

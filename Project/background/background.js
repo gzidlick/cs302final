@@ -14,7 +14,9 @@ chrome.runtime.onConnect.addListener(function(port) {
 
 chrome.runtime.onMessage.addListener(function(request, sender, sendResponse){
     if(request.name == "checkURL"){
-        sendResponse({visited: container.hasVisited(request.url)});
+        container.hasVisited(request.url).then(function(val){
+            sendResponse({visited: val});
+        });
         return true;
     }else if(request.name == "getObj"){
         let password = prompt("Enter your master password: \n(TODO: make this not plaintext)");

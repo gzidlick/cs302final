@@ -4,24 +4,19 @@ class FormReader {
 	}
 
     checkVisited(URL){
-        var visited = new Promise(function(resolve, reject){
+        return new Promise(function(resolve, reject){
             chrome.runtime.sendMessage({name: "checkURL", url: URL}, function(response) {
-                if(response.visited){
-                    reject("we've visited this before");
-                }else{
-                    resolve("We've never recorded this URL");
-                }
+                resolve(response.visited);
             });
         });
+    }
 
-        visited.then(function(garbage){
-            // we've never visited this before
-            console.debug(garbage);
-            return false;
-        }).catch(function(alsoGarbage){
-            // HALT! been there, done this
-            console.debug(alsoGarbage);
-            return true;
+    autoFill(form, url){
+        let formObjects = this.getFormFields(form);
+        chrome.runtime.sendMessage({name: "getObj", url: url}, function(response){
+            console.assert(response.name == "returnObj");
+            formObjects['username'].value = response.a;
+            formObjects['password'].value = response.b;
         });
     }
 
@@ -63,7 +58,7 @@ class FormReader {
 		// TODO: REMOVE THIS!!
 		console.debug("username:", this.usernameField.value);
 		console.debug("password:", this.passwordField.value);
-		return {username: this.usernameField.value, password: this.passwordField.value}
+		return {username: this.usernameField, password: this.passwordField}
 	}
 
 
@@ -78,7 +73,7 @@ class FormReader {
 	submit(e, form){
 		let formRes = this.getFormFields(form);
         // url, pass, plaintextURL
-        let obj = {a: formRes.username, b: formRes.password};
+        let obj = {a: formRes.username.value, b: formRes.password.value};
 
         let ret = {
             plaintextURL: window.location.href,
