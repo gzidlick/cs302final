@@ -49,10 +49,18 @@ export class PasswordContainer{
          */
         console.debug(url, masterPass);
         const key = RC4.randomHashNotRC4(url + ":" + masterPass);
-        const object = RC4.crypt(chrome.storage.sync.get[key]);
-        
-        console.debug("decrypted: ", object);
-        let ret = JSON.parse(object);
-        return ret;
+        return new Promise(function(resolve, reject){
+            chrome.storage.sync.get([key], function(result){
+                const object = RC4.crypt(result[key]);
+                if(result[key] == undefined){
+                    alert("Incorrect Password\n(Key not found in table)");
+                    resolve({a: "", b: ""});
+                }else{
+                    console.debug("decrypted", object);
+                    let ret = JSON.parse(object);
+                    resolve(ret);
+                }
+            });
+        });
     }
 }

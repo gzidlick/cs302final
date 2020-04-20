@@ -20,9 +20,10 @@ chrome.runtime.onMessage.addListener(function(request, sender, sendResponse){
         return true;
     }else if(request.name == "getObj"){
         let password = prompt("Enter your master password: \n(TODO: make this not plaintext)");
-        let response = container.access(request.url,password);
-        response.name = "returnObj";
-        sendResponse(response);
+        container.access(request.url,password).then(function(response){
+            response.name = "returnObj";
+            sendResponse(response);
+        });
         return true;
     }
 });
