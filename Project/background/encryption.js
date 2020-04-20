@@ -80,6 +80,8 @@ export class RC4{
          c = objStr.charCodeAt(i);
          hash = ((hash << 5) + hash) + c;
       }
+	  hash = String(hash);
+	  console.log(hash);
       return hash; // fin
    }
 }

@@ -57,8 +57,7 @@ export class PasswordContainer{
                     resolve({a: "", b: ""});
                 }else{
                     console.debug("decrypted", object);
-                    let ret = JSON.parse(object);
-                    resolve(ret);
+                    resolve(object);
                 }
             });
         });

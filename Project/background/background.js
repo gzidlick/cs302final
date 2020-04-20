@@ -21,10 +21,14 @@ chrome.runtime.onMessage.addListener(function(request, sender, sendResponse){
     }else if(request.name == "getObj"){
         let password = prompt("Enter your master password: \n(TODO: make this not plaintext)");
         container.access(request.url,password).then(function(response){
-            response.name = "returnObj";
-            sendResponse(response);
+
+			let obj = JSON.parse(JSON.parse(response));// this is stupid... why does it have to be like this?
+			obj.name = "returnObj";
+			console.debug(obj);
+            sendResponse(obj);
+			return true;
+
         });
-        return true;
     }
 });
 
