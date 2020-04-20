@@ -29,7 +29,7 @@ export class PasswordContainer{
         // ENCRYPTION HAPPENS HERE
         console.debug(obj, masterPass);
         const key = RC4.randomHashNotRC4(obj.plaintextURL + ":" + masterPass);
-        const val = RC4.crypt(obj.pass);
+        const val = RC4.crypt(obj.pass, key, true);
         chrome.storage.sync.set({[key]:val});
 
         // add this url to the plaintext list
@@ -51,7 +51,7 @@ export class PasswordContainer{
         const key = RC4.randomHashNotRC4(url + ":" + masterPass);
         return new Promise(function(resolve, reject){
             chrome.storage.sync.get([key], function(result){
-                const object = RC4.crypt(result[key]);
+                const object = RC4.crypt(result[key], key, false);
                 if(result[key] == undefined){
                     alert("Incorrect Password\n(Key not found in table)");
                     resolve({a: "", b: ""});
