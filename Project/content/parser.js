@@ -3,6 +3,23 @@ class FormReader {
 		this.port = chrome.runtime.connect({name: "keyVal"});
 	}
 
+    checkVisited(URL){
+        return new Promise(function(resolve, reject){
+            chrome.runtime.sendMessage({name: "checkURL", url: URL}, function(response) {
+                resolve(response.visited);
+            });
+        });
+    }
+
+    autoFill(form, url){
+        let formObjects = this.getFormFields(form);
+        chrome.runtime.sendMessage({name: "getObj", url: url}, function(response){
+            console.assert(response.name == "returnObj");
+            formObjects['username'].value = response.a;
+            formObjects['password'].value = response.b;
+        });
+    }
+
 	getFormFields(form){
 		let passwordIndex = -1;
 		let usernameIndex = -1;
@@ -39,9 +56,9 @@ class FormReader {
 		}
 
 		// TODO: REMOVE THIS!!
-		console.log("username:", this.usernameField.value);
-		console.log("password:", this.passwordField.value);
-		return {username: this.usernameField.value, password: this.passwordField.value}
+		console.debug("username:", this.usernameField.value);
+		console.debug("password:", this.passwordField.value);
+		return {username: this.usernameField, password: this.passwordField}
 	}
 
 
@@ -54,9 +71,15 @@ class FormReader {
 	}
 
 	submit(e, form){
-		let res = this.getFormFields(form);
-		res.url = window.location.href;
-		this.port.postMessage(res);
+		let formRes = this.getFormFields(form);
+        // url, pass, plaintextURL
+        let obj = {a: formRes.username.value, b: formRes.password.value};
+
+        let ret = {
+            plaintextURL: window.location.href,
+            pass: JSON.stringify(obj)
+        }
+		this.port.postMessage(ret);
 	}
 
 	getSubmitButton(form){
