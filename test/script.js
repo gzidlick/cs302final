@@ -1,6 +1,6 @@
 let profiles = [];
         // example {id:1592304983049, title: 'Deadpool', year: 2015}
-        const addProfile = (ev)=>{
+        const addProfile = (ev) => {
             ev.preventDefault();  //to stop the form submitting
             let profile = {
                 id: document.getElementById('profile').value,
@@ -14,6 +14,6 @@ let profiles = [];
             //saving to localStorage
 	    localStorage.setItem(profile.id, JSON.stringify(profiles) );
         }
-        document.addEventListener('DOMContentLoaded', ()=>{
+        document.addEventListener('DOMContentLoaded', () => {
             document.getElementById('btn').addEventListener('click', addProfile);
         });
