@@ -32,7 +32,7 @@ Install
 -----
 This is not an officially released Chrome extension so to install the project a few steps are required.
 So, begin by cloning this repo into a known location.
-Then go to the following link in the Chrome browser [](chrome://extensions) .
+Then go to the following link in the Chrome browser [chrome://extensions](chrome://extensions) .
 Once there, enable developer mode the 
 
 
