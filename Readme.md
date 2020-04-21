@@ -39,6 +39,8 @@ Once loaded it should look as follows:
 
 ![Successful Loading](example_picture.png)
 
+Note that the extension is enabled and activated.
+The little `P' icon in your browser bar means that the extension is ready to go!
 
 How-to-use
 -----
