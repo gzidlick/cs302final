@@ -21,3 +21,5 @@ Gauge Zidlick Timelog:
 							with a username and password field.
 
 	3/31			~ 3 hr			Spent time learning javascript.
+	
+	4/13			~ 2 hr			Created a test bed for chrome local storage, using the previous test GUI. Successfully got program to store plaintext username and password locally. 
