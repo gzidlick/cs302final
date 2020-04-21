@@ -1,11 +1,13 @@
 COSC 302 - Final Project
 ========================
+University of Tennessee, Knoxville
+
 Austin Jones -- Gauge Zidlick -- Landon Harris
 
 Password Manager
 ================
 
-**Disclaimer**
+**Disclaimer!!**
 -------
 **This is not intended for actual use in a setting where security is the priority.**
 **This was made as  project in order to learn the tools needed to build a good web extension and learn some basic crytopgraphy.**
