@@ -1,0 +1,20 @@
+{
+  "manifest_version": 2,
+
+  "name": "Password Manager",
+  "description": "Password Manager",
+  "version": "1.0",
+  "browser_action": {
+   "default_popup": "popup.html"
+  },
+  "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'",
+  "web_accessible_resources": [
+     "./rc4_wasm_bg.wasm",
+     "./rc4_wasm.js"
+  ],
+  "permissions": [
+   "activeTab",
+   "unlimitedStorage",
+   "storage"
+   ]
+}

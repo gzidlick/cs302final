@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<style>
+			body {
+				width: 340px;
+				border: 0;
+				margin: 0;
+				padding: 0;
+			}
+			input {
+				width: 100%;
+				text-align: center;
+			}
+			button{
+				width: 100%;
+				margin-left: auto;
+				margin-right: auto;
+				// this is weird
+			}
+			.inputs {
+				margin-left: 25%;
+				margin-right: 25%;
+				padding: 0;
+				width: 50%;
+			}
+			.header{
+				width: 100%;
+				background: #FF8200;
+				border: 0;
+				margin: 0;
+				padding: 0;
+			}
+			h1{
+				color: #FFFFFFFF;
+				text-align: center;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="header">
+			<h1>Password Manager</h1>
+		</div>
+		<div class="inputs">
+			<input id="username" placeholder="Username"/>
+			<input id="password" type="password" placeholder="Password"/>
+			<button id="submit">Submit</button>
+		</div>
+	</body>
+	<script src="./handle.js"></script>
+</html>
