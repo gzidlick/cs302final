@@ -1,11 +1,8 @@
-COSC 302 - Final Project
-========================
-University of Tennessee, Knoxville
-
-Austin Jones -- Gauge Zidlick -- Landon Harris
-
 Password Manager
-================
+========================
+COSC 302 - Final Project: University of Tennessee, Knoxville
+
+[Austin Jones](https://github.com/ajone239),[Gauge Zidlick](github.com/gzidlick),[Landon Harris](https://github.com/lharri73)
 
 **Disclaimer!!**
 -------
@@ -48,5 +45,21 @@ Once loaded it should look as follows:
 *Note that the extension is enabled and activated.
 The little `P` icon in your browser bar means that the extension is ready to go!*
 
-How-to-use
+How-To-Use
 -----
+This extensions is always scraping through the webpages you visit to see if it's a login form, if it is, when you click submit it will ask if you want to save the username and password. If it's a page you've visited before, as soon as the page loads, it'll ask for your password to load the stored username and password for the webpage you're on!
+
+<table align="center">
+      <thead>
+        <tr>
+            <th>Saving</th>
+            <th>Filling</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><img src="assets/save.gif" width="500px"/></td>
+            <td><img src="assets/fill.gif" width="500px"/></td>
+        </tr>
+    </tbody>
+</table>
