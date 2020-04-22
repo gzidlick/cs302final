@@ -7,7 +7,7 @@ chrome.runtime.onConnect.addListener(function(port) {
 	console.assert(port.name == "keyVal");
 
 	port.onMessage.addListener(function(msg){
-        let password = prompt("Enter your master password: \n(TODO: make this not plaintext)");
+        let password = prompt("Enter your master password:");
 		container.store(msg,password);
 	});
 });
@@ -23,7 +23,7 @@ chrome.runtime.onMessage.addListener(function(request, sender, sendResponse){
 
 chrome.runtime.onMessage.addListener(function(request, sender, sendResponse){
 	if(request.name == "getObj"){
-        let password = prompt("Enter your master password: \n(TODO: make this not plaintext)");
+        let password = prompt("Enter your master password:");
         container.access(request.url,password).then(function(response){
 
 			let obj = JSON.parse(JSON.parse(response));// this is stupid... why does it have to be like this?
