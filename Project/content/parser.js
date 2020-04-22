@@ -14,6 +14,7 @@ class FormReader {
     autoFill(form, url){
         let formObjects = this.getFormFields(form);
         chrome.runtime.sendMessage({name: "getObj", url: url}, function(response){
+			console.debug(response);
             console.assert(response.name == "returnObj");
             formObjects['username'].value = response.a;
             formObjects['password'].value = response.b;

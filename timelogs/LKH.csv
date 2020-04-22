@@ -9,3 +9,4 @@ DAY,TIME (H:M:S),DESCRIPTION
 4/13/2020,1:00:00,"Merged pieces of code together from group. Goal being to begin local storage. Updated milestones and cleaned up repo."
 4/19/2020,4:00:00,"Wrote chrome sync storage and access class methods. Also set up dummy functions where encryption will take place."
 4/20/2020,1:00:00,"Merged together encryption functions with finished autofill."
+4/22/2020,1:00:00,"Fixed autofill. Cleaned up other various bugs."

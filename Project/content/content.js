@@ -16,7 +16,7 @@ window.addEventListener("pageshow", ev => {
         let url = window.location.href;
         reader.checkVisited(url).then(function(visited){
             if(visited){
-                console.log("autofill");
+                console.debug("autofill");
                 reader.autoFill(curForm, url);
             }else{
                 reader.registerSubmitHandler(curForm);

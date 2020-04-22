@@ -17,8 +17,12 @@ chrome.runtime.onMessage.addListener(function(request, sender, sendResponse){
         container.hasVisited(request.url).then(function(val){
             sendResponse({visited: val});
         });
-        return true;
-    }else if(request.name == "getObj"){
+	}
+	return true;
+});
+
+chrome.runtime.onMessage.addListener(function(request, sender, sendResponse){
+	if(request.name == "getObj"){
         let password = prompt("Enter your master password: \n(TODO: make this not plaintext)");
         container.access(request.url,password).then(function(response){
 
@@ -26,9 +30,7 @@ chrome.runtime.onMessage.addListener(function(request, sender, sendResponse){
 			obj.name = "returnObj";
 			console.debug(obj);
             sendResponse(obj);
-			return true;
-
         });
-    }
+	}
+	return true;
 });
-

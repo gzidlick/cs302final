@@ -81,7 +81,7 @@ export class RC4{
          hash = ((hash << 5) + hash) + c;
       }
 	  hash = String(hash);
-	  console.log(hash);
+	  console.debug(hash);
       return hash; // fin
    }
 }
