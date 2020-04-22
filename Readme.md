@@ -42,7 +42,7 @@ This is not an officially released Chrome extension so to install the project a 
 Once loaded it should look as follows:
 
 <p align="center">
-  <img src="example_picture.png" width="500px"/>
+  <img src="assets/example_picture.png" width="500px"/>
 </div>
 
 *Note that the extension is enabled and activated.
