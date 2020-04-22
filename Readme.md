@@ -2,7 +2,7 @@ Password Manager
 ========================
 COSC 302 - Final Project: University of Tennessee, Knoxville
 
-[Austin Jones](https://github.com/ajone239),[Gauge Zidlick](github.com/gzidlick),[Landon Harris](https://github.com/lharri73)
+[Austin Jones](https://github.com/ajone239), [Gauge Zidlick](github.com/gzidlick), [Landon Harris](https://github.com/lharri73)
 
 **Disclaimer!!**
 -------
