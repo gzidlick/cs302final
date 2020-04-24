@@ -34,11 +34,17 @@ export class PasswordContainer{
 
         // add this url to the plaintext list
         let tmpArray = chrome.storage.sync.get['meta_URLS'];
-        if(tmpArray === undefined)
-            tmpArray = [];
+        return new Promise(function(resolve, reject){
+            chrome.storage.sync.get('meta_URLS', function(tmpArray){
+                console.log(tmpArray);
+                if(Object.keys(tmpArray).length === 0)
+                    tmpArray.meta_URLS = [];
 
-        tmpArray.push(obj.plaintextURL);
-        chrome.storage.sync.set({meta_URLS: tmpArray});
+                tmpArray.meta_URLS.push(obj.plaintextURL);
+                chrome.storage.sync.set(tmpArray);
+                resolve();
+            });
+        })
 	}
 
     access(url, masterPass){
@@ -51,11 +57,11 @@ export class PasswordContainer{
         const key = RC4.randomHashNotRC4(url + ":" + masterPass);
         return new Promise(function(resolve, reject){
             chrome.storage.sync.get([key], function(result){
-                const object = RC4.crypt(result[key], key, false);
                 if(result[key] == undefined){
                     alert("Incorrect Password\n(Key not found in table)");
                     resolve({a: "", b: ""});
                 }else{
+                    const object = RC4.crypt(result[key], key, false);
                     console.debug("decrypted", object);
                     resolve(object);
                 }

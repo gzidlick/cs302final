@@ -6,12 +6,12 @@ function getLoginForm(){
 		return list[0];
 	}
 }
-
-window.addEventListener("pageshow", ev => {
-	var reader = new FormReader();
-	// register the submit handler
-	var curForm = getLoginForm();
-	if(curForm != null){
+window.addEventListener("load", ev => {
+    last_url = window.location.href;
+    var reader = new FormReader();
+    // register the submit handler
+    var curForm = getLoginForm();
+    if(curForm != null){
         // check the list to see if we have been to this website before
         let url = window.location.href;
         reader.checkVisited(url).then(function(visited){
@@ -22,6 +22,5 @@ window.addEventListener("pageshow", ev => {
                 reader.registerSubmitHandler(curForm);
             }
         });
-
-	}
+    }
 });
